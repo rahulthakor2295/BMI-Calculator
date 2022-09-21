@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:bmi/Input_page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +15,12 @@ class BmiCalculator extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.dark().copyWith(
+          // iconTheme: IconThemeData(color: Colors.white),
+          // primaryIconTheme: IconThemeData(color: Colors.white),
+          // accentIconTheme: IconThemeData(color: Colors.white),
           primaryColor: Color(0xFF0A0E21),
           scaffoldBackgroundColor: Color(0xFF0A0E21),
+          // ignore: deprecated_member_use
           buttonColor: Colors.red),
       home: const InputPage(title: 'Flutter Demo Home Page'),
     );

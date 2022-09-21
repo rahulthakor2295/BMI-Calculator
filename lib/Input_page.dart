@@ -1,4 +1,12 @@
+// ignore_for_file: prefer_const_constructors, file_names
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
+import 'icon_container.dart';
+import 'reusable_card.dart';
+
+const ActivatecardColor = Color(0xFF0C1234);
+const ButttomContainerHight = 80.0;
+const ButttomContainerColor = Color(0xFFFF0067);
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key, required this.title});
@@ -24,15 +32,24 @@ class _InputPageState extends State<InputPage> {
           children: <Widget>[
             Expanded(
               child: Row(
+                // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   Expanded(
                     child: CardResuable(
-                      colur: Color(0xFF0C1234),
+                      colur: ActivatecardColor,
+                      ChardChild: ContainerColumn(
+                        ColumnText: "Male",
+                        ColumnIcon: Icons.male,
+                      ),
                     ),
                   ),
                   Expanded(
                     child: CardResuable(
-                      colur: Color(0xFF0C1234),
+                      colur: ActivatecardColor,
+                      ChardChild: ContainerColumn(
+                        ColumnText: "Female",
+                        ColumnIcon: Icons.female,
+                      ),
                     ),
                   ),
                 ],
@@ -40,41 +57,44 @@ class _InputPageState extends State<InputPage> {
             ),
             Expanded(
               child: CardResuable(
-                colur: Color(0xFF0C1234),
+                colur: ActivatecardColor,
               ),
             ),
             Expanded(
-                child: Row(
-              children: [
-                Expanded(
-                  child: CardResuable(
-                    colur: Colors.blue,
+              child: Row(
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  Expanded(
+                    child: CardResuable(
+                      colur: ActivatecardColor,
+                    ),
+                  ),
+                  Expanded(
+                    child: CardResuable(
+                      colur: ActivatecardColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: ButttomContainerHight,
+              width: double.infinity,
+              color: ButttomContainerColor,
+              child: TextButton(
+                child: Text(
+                  "CALCULATE YOUR BMI",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
                   ),
                 ),
-                Expanded(
-                  child: CardResuable(
-                    colur: Color(0xFF0C1234),
-                  ),
-                ),
-              ],
-            ))
+                onPressed: () {},
+              ),
+            ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class CardResuable extends StatelessWidget {
-  // ignore: use_key_in_widget_constructors
-  const CardResuable({required this.colur});
-  final Color colur;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: colur, borderRadius: BorderRadius.circular(10.0)),
-      margin: EdgeInsets.all(15.0),
     );
   }
 }
