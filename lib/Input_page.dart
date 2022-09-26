@@ -7,6 +7,7 @@ import 'reusable_card.dart';
 const ActivatecardColor = Color(0xFF0C1234);
 const ButttomContainerHight = 80.0;
 const ButttomContainerColor = Color(0xFFFF0067);
+const InactiveColor = Color(0xFF111328);
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key, required this.title});
@@ -18,9 +19,31 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color MaleCardColor = InactiveColor;
+  Color FemaleCardColor = InactiveColor;
+  void updateColor(int Gender) {
+    if (Gender == 1) {
+      if (MaleCardColor == InactiveColor) {
+        MaleCardColor = ActivatecardColor;
+
+        FemaleCardColor = InactiveColor;
+      } else {
+        MaleCardColor = InactiveColor;
+      }
+    } else if (Gender == 2) {
+      if (FemaleCardColor == InactiveColor) {
+        FemaleCardColor = ActivatecardColor;
+        MaleCardColor = InactiveColor;
+      } else {
+        FemaleCardColor = InactiveColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.black12,
         appBar: AppBar(
@@ -35,20 +58,34 @@ class _InputPageState extends State<InputPage> {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   Expanded(
-                    child: CardResuable(
-                      colur: ActivatecardColor,
-                      ChardChild: ContainerColumn(
-                        ColumnText: "Male",
-                        ColumnIcon: Icons.male,
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          updateColor(1);
+                        });
+                      },
+                      child: CardResuable(
+                        colur: MaleCardColor,
+                        ChardChild: ContainerColumn(
+                          ColumnText: "Male",
+                          ColumnIcon: Icons.male,
+                        ),
                       ),
                     ),
                   ),
                   Expanded(
-                    child: CardResuable(
-                      colur: ActivatecardColor,
-                      ChardChild: ContainerColumn(
-                        ColumnText: "Female",
-                        ColumnIcon: Icons.female,
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          updateColor(2);
+                        });
+                      },
+                      child: CardResuable(
+                        colur: FemaleCardColor,
+                        ChardChild: ContainerColumn(
+                          ColumnText: "Female",
+                          ColumnIcon: Icons.female,
+                        ),
                       ),
                     ),
                   ),
