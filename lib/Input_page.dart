@@ -56,38 +56,34 @@ class _InputPageState extends State<InputPage> {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   Expanded(
-                    child: GestureDetector(
-                      onTap: () {
+                    child: CardResuable(
+                      onPress: () {
                         setState(() {
                           SelectedGender = gender.male;
                         });
                       },
-                      child: CardResuable(
-                        colur: SelectedGender == gender.male
-                            ? ActivatecardColor
-                            : InactiveColor,
-                        ChardChild: ContainerColumn(
-                          ColumnText: "Male",
-                          ColumnIcon: Icons.male,
-                        ),
+                      colur: SelectedGender == gender.male
+                          ? ActivatecardColor
+                          : InactiveColor,
+                      ChardChild: ContainerColumn(
+                        ColumnText: "Male",
+                        ColumnIcon: Icons.male,
                       ),
                     ),
                   ),
                   Expanded(
-                    child: GestureDetector(
-                      onTap: () {
+                    child: CardResuable(
+                      onPress: () {
                         setState(() {
                           SelectedGender = gender.female;
                         });
                       },
-                      child: CardResuable(
-                        colur: SelectedGender == gender.female
-                            ? ActivatecardColor
-                            : InactiveColor,
-                        ChardChild: ContainerColumn(
-                          ColumnText: "Female",
-                          ColumnIcon: Icons.female,
-                        ),
+                      colur: SelectedGender == gender.female
+                          ? ActivatecardColor
+                          : InactiveColor,
+                      ChardChild: ContainerColumn(
+                        ColumnText: "Female",
+                        ColumnIcon: Icons.female,
                       ),
                     ),
                   ),
@@ -97,6 +93,7 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: CardResuable(
                 colur: ActivatecardColor,
+                onPress: null,
               ),
             ),
             Expanded(
@@ -106,11 +103,13 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     child: CardResuable(
                       colur: ActivatecardColor,
+                      onPress: null,
                     ),
                   ),
                   Expanded(
                     child: CardResuable(
                       colur: ActivatecardColor,
+                      onPress: null,
                     ),
                   ),
                 ],
