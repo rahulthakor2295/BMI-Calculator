@@ -3,11 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'icon_container.dart';
 import 'reusable_card.dart';
-
-const ActivatecardColor = Color(0xFF0C1234);
-const ButttomContainerHight = 80.0;
-const ButttomContainerColor = Color(0xFFFF0067);
-const InactiveColor = Color(0xFF111328);
+import 'constants.dart';
 
 enum gender { male, female }
 
@@ -37,7 +33,10 @@ class _InputPageState extends State<InputPage> {
   //       ? FemaleCardColor = ActivatecardColor
   //       : FemaleCardColor = InactiveColor;
   // }
+  int Hieght = 180;
+  int Weight = 60;
   gender? SelectedGender;
+  int Age = 20;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,6 +49,7 @@ class _InputPageState extends State<InputPage> {
           centerTitle: true,
         ),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
               child: Row(
@@ -63,8 +63,8 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       colur: SelectedGender == gender.male
-                          ? ActivatecardColor
-                          : InactiveColor,
+                          ? kActivatecardColor
+                          : kInactiveColor,
                       ChardChild: ContainerColumn(
                         ColumnText: "Male",
                         ColumnIcon: Icons.male,
@@ -79,8 +79,8 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       colur: SelectedGender == gender.female
-                          ? ActivatecardColor
-                          : InactiveColor,
+                          ? kActivatecardColor
+                          : kInactiveColor,
                       ChardChild: ContainerColumn(
                         ColumnText: "Female",
                         ColumnIcon: Icons.female,
@@ -92,7 +92,47 @@ class _InputPageState extends State<InputPage> {
             ),
             Expanded(
               child: CardResuable(
-                colur: ActivatecardColor,
+                ChardChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "HIEGHT",
+                      style: kLableTextStyle,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text("${Hieght.toInt()}", style: kNumberTextStyle),
+                        Text("cm", style: kLableTextStyle),
+                      ],
+                    ),
+                    SliderTheme(
+                      data: SliderTheme.of(context).copyWith(
+                          activeTrackColor: Colors.white,
+                          thumbColor: Color(0xFFEB1555),
+                          overlayColor: Color(0x29EB1555),
+                          overlayShape:
+                              RoundSliderOverlayShape(overlayRadius: 30.0),
+                          thumbShape:
+                              RoundSliderThumbShape(enabledThumbRadius: 15.0)),
+                      child: Slider(
+                        value: Hieght.toDouble(),
+                        max: 220,
+                        inactiveColor: Color(0xFFD63D64),
+                        // label: Hieght.round().toString(),
+                        min: 120.0,
+
+                        onChanged: (value) {
+                          setState(() {
+                            Hieght = value.round();
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                colur: kActivatecardColor,
                 onPress: null,
               ),
             ),
@@ -102,23 +142,106 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                     child: CardResuable(
-                      colur: ActivatecardColor,
+                      colur: kActivatecardColor,
                       onPress: null,
+                      ChardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "WEIGHT",
+                            style: kLableTextStyle,
+                          ),
+                          Text(
+                            Weight.toString(),
+                            style: kNumberTextStyle,
+                          ),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                RoundIconButton(
+                                  onPress: () {
+                                    setState(() {
+                                      Weight--;
+                                    });
+                                  },
+                                  RoundIconButtonIcon: Icon(
+                                    Icons.minimize,
+                                    color: kRoundIconButtonIconColor,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                RoundIconButton(
+                                  onPress: () {
+                                    setState(() {
+                                      Weight++;
+                                    });
+                                  },
+                                  RoundIconButtonIcon: Icon(
+                                    Icons.add,
+                                    color: kRoundIconButtonIconColor,
+                                  ),
+                                ),
+                              ])
+                        ],
+                      ),
                     ),
                   ),
                   Expanded(
                     child: CardResuable(
-                      colur: ActivatecardColor,
-                      onPress: null,
+                      colur: kActivatecardColor,
+                      ChardChild: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "AGE",
+                              style: kLableTextStyle,
+                            ),
+                            Text(
+                              Age.toString(),
+                              style: kNumberTextStyle,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                RoundIconButton(
+                                  RoundIconButtonIcon: Icon(
+                                    Icons.minimize,
+                                    color: kRoundIconButtonIconColor,
+                                  ),
+                                  onPress: () {
+                                    setState(() {
+                                      Age--;
+                                    });
+                                  },
+                                ),
+                                SizedBox(
+                                  width: 10.0,
+                                ),
+                                RoundIconButton(
+                                  RoundIconButtonIcon: Icon(
+                                    Icons.add,
+                                    color: kRoundIconButtonIconColor,
+                                  ),
+                                  onPress: () {
+                                    setState(() {
+                                      Age++;
+                                    });
+                                  },
+                                ),
+                              ],
+                            )
+                          ]),
                     ),
                   ),
                 ],
               ),
             ),
             Container(
-              height: ButttomContainerHight,
+              height: kButttomContainerHight,
               width: double.infinity,
-              color: ButttomContainerColor,
+              color: kButttomContainerColor,
               child: TextButton(
                 child: Text(
                   "CALCULATE YOUR BMI",
@@ -133,6 +256,28 @@ class _InputPageState extends State<InputPage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  // ignore: non_constant_identifier_names
+  RoundIconButton(
+      {super.key, @required this.RoundIconButtonIcon, this.onPress});
+  Icon? RoundIconButtonIcon;
+  dynamic Function()? onPress;
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onPress,
+      elevation: 6.0,
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      shape: CircleBorder(),
+      fillColor: Color(0xFF4C4F5E),
+      child: RoundIconButtonIcon,
     );
   }
 }
