@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'icon_container.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
+import 'resultsPage.dart';
 
 enum gender { male, female }
 
@@ -238,19 +239,23 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            Container(
-              height: kButttomContainerHight,
-              width: double.infinity,
-              color: kButttomContainerColor,
-              child: TextButton(
-                child: Text(
-                  "CALCULATE YOUR BMI",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/resultpage');
+              },
+              child: Container(
+                height: kButttomContainerHight,
+                width: double.infinity,
+                color: kButttomContainerColor,
+                child: Center(
+                  child: Text(
+                    "CALCULATE YOUR BMI",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
                   ),
                 ),
-                onPressed: () {},
               ),
             ),
           ],
