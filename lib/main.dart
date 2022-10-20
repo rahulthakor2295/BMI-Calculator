@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:bmi/Input_page.dart';
+import 'package:bmi/screens/Input_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
