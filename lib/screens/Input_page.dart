@@ -49,7 +49,7 @@ class _InputPageState extends State<InputPage> {
         backgroundColor: Colors.black12,
         appBar: AppBar(
           backgroundColor: Colors.black12,
-          title: Text(widget.title),
+          title: Text(widget.title,style: TextStyle(color: Colors.grey),),
           centerTitle: true,
         ),
         body: Column(

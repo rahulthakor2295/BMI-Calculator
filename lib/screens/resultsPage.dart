@@ -23,11 +23,14 @@ class ResultsPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(
-            child: Container(
-              child: Text(
-                "Your BMI",
-                style: kTitleTextStyle,
+          Padding(
+            padding: const EdgeInsets.only(left: 10.0),
+            child: Expanded(
+              child: Container(
+                child: Text(
+                  "Your BMI",
+                  style: kTitleTextStyle,
+                ),
               ),
             ),
           ),
@@ -52,11 +55,29 @@ class ResultsPage extends StatelessWidget {
                       style: kBodyTextStyle,
                       textAlign: TextAlign.center,
                     ),
-                    ButtomButton(
-                        ButtonTitle: 'RE-CALCULATE',
-                        onTap: () {
-                          Navigator.pop(context);
-                        }),
+                    MaterialButton(
+                      onPressed: (){
+                        Navigator.pop(context);
+                      },
+                      minWidth: double.infinity,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+                      // ignore: sort_child_properties_last
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 12.0),
+                        child: Text(
+                          'RE-CALCULATE',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      height: kButttomContainerHight,
+                      color: kButttomContainerColor,
+                      padding: EdgeInsets.only(bottom: 10.0),
+                    )
                   ],
                 ),
               ),
