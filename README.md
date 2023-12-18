@@ -1,16 +1,15 @@
 # bmi
+Body Mass Index is a simple calculation using a person’s height and weight.
+We can calculate BMI score using this application and know about our health condition,
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div class="row">
+  <div class="column">
+    <img src="https://github.com/rahulthakor2295/BMI-Calculator/assets/110384118/1ad5bd87-7f1b-497d-90ec-cc854cf0c780" alt="Forest" style="width:50%">
+  </div>
+  <div class="column">
+    <img src="https://github.com/rahulthakor2295/BMI-Calculator/assets/110384118/1788f988-788f-4632-87f3-24dc2c4d4564" alt="Snow" style="width:50%">
+  </div>
+</div>
